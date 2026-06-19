@@ -22,3 +22,5 @@ Pods/
 !*.xcodeproj/project.xcworkspace/
 !*.xcworkspace/contents.xcworkspacedata
 **/xcshareddata/WorkspaceSettings.xcsettings
+
+MovieApp/Resource+DefaultsFile/Configurations/Dev.xcconfig
