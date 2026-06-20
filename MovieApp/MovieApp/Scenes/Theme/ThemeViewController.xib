@@ -51,7 +51,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" name="secondaryBg"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="5Kz-4V-iff"/>
                         <constraint firstItem="RHf-Og-l2Y" firstAttribute="leading" secondItem="30o-9T-4TH" secondAttribute="leading" constant="24" id="8Mf-a2-xrC"/>
@@ -61,28 +61,34 @@
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="YUO-6r-kg3">
-                    <rect key="frame" x="0.0" y="184" width="393" height="600"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <rect key="frame" x="0.0" y="168" width="393" height="684"/>
+                    <color key="backgroundColor" name="backgroundColor"/>
                 </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="YUO-6r-kg3" firstAttribute="top" secondItem="30o-9T-4TH" secondAttribute="bottom" constant="16" id="75j-MN-gW7"/>
+                <constraint firstItem="YUO-6r-kg3" firstAttribute="top" secondItem="30o-9T-4TH" secondAttribute="bottom" id="75j-MN-gW7"/>
                 <constraint firstItem="YUO-6r-kg3" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Qcx-18-Sq3"/>
                 <constraint firstItem="30o-9T-4TH" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="UMe-ns-SdY"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="YUO-6r-kg3" secondAttribute="trailing" id="c3b-yu-NKU"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="30o-9T-4TH" secondAttribute="top" id="ccy-ao-tzH"/>
                 <constraint firstItem="30o-9T-4TH" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="eRd-FM-gmY"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="YUO-6r-kg3" secondAttribute="bottom" id="nvR-hA-unp"/>
+                <constraint firstAttribute="bottom" secondItem="YUO-6r-kg3" secondAttribute="bottom" id="nvR-hA-unp"/>
             </constraints>
             <point key="canvasLocation" x="-111" y="139"/>
         </view>
     </objects>
     <resources>
         <image name="chevron.backward" catalog="system" width="97" height="128"/>
+        <namedColor name="backgroundColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="primaryText">
             <color red="0.10196079313755035" green="0.10196079313755035" blue="0.10196079313755035" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="secondaryBg">
+            <color red="0.97254902124404907" green="0.97254902124404907" blue="0.97254902124404907" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

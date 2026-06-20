@@ -12,3 +12,12 @@ func mainThread(_ completion: @escaping () -> ()) {
         completion()
     }
 }
+
+
+enum TMDBImage {
+    static let baseURL = "https://image.tmdb.org/t/p/"
+    static func url(path: String?, size: String = "w500") -> URL? {
+        guard let path else { return nil }
+        return URL(string: baseURL + size + path)
+    }
+}
