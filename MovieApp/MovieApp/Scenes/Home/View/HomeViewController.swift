@@ -17,7 +17,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     private var searchWorkItem: DispatchWorkItem?
     
-    private let viewModel = HomeViewModel() // Inisialisasi ViewModel
+    private let viewModel = HomeViewModel()
     private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -58,7 +58,6 @@ class HomeViewController: UIViewController {
         viewModel.movies
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] movies in
-                // Lu bisa reload data di sini
                 self?.collectionView.reloadData()
                 debugPrint("Data updated: \(movies.count) movies")
             })
@@ -104,7 +103,6 @@ extension HomeViewController: UISearchBarDelegate {
     private func performSearch(query: String) {
         let trimmed = query.trimmingCharacters(in: .whitespaces)
         guard !trimmed.isEmpty else {
-            // Kalau kosong, tarik data discover (default)
             viewModel.fetchMovies()
             return
         }
@@ -115,50 +113,3 @@ extension HomeViewController: UISearchBarDelegate {
 
 
 
-class HomeViewModel {
-    let movies = BehaviorRelay<[Movie]>(value: [])
-    let isLoading = BehaviorRelay<Bool>(value: false)
-    let errorMessage = PublishRelay<String>()
-    
-    private var searchDisposable: Disposable?
-    
-    func fetchMovies(searchKey: String? = nil, page: Int = 1) {
-        searchDisposable?.dispose()
-        
-        isLoading.accept(true)
-        
-        let isSearching = searchKey != nil && !searchKey!.isEmpty
-        let endPoint: Endpoint = isSearching ? .searchMovie : .discoverMovie
-        
-        var query = "page=\(page)&include_adult=false&language=en-US"
-        if let searchKey {
-            query += "&query=\(searchKey)"
-        }
-        
-        searchDisposable = Observable<DiscoverMovie>.create { observer in
-            let task = APIManager.shared.hitAPIWithResultAndError(
-                endpoint: endPoint,
-                query: query,
-                httpMethod: .get,
-                model: DiscoverMovie.self
-            ) { result in
-                switch result {
-                case .success(let data, _):
-                    observer.onNext(data)
-                    observer.onCompleted()
-                case .error(let error):
-                    debugPrint("error \(error)")
-                    observer.onError(error)
-                }
-            }
-            return Disposables.create { task?.cancel() }
-        }
-        .subscribe(onNext: { [weak self] data in
-            self?.movies.accept(data.results ?? [])
-            self?.isLoading.accept(false)
-        }, onError: { [weak self] error in
-            self?.errorMessage.accept("Error Bro")
-            self?.isLoading.accept(false)
-        })
-    }
-}
