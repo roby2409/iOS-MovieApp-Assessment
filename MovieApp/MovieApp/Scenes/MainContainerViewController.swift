@@ -12,7 +12,7 @@ class CustomBottomBar: UIView {
     required init?(coder: NSCoder) { fatalError() }
 
     private func setupUI() {
-        backgroundColor = AppColor.neutralComponent
+        backgroundColor = AppColor.secondaryBg
         layer.cornerRadius = 25
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOpacity = 0.1

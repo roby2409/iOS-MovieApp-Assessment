@@ -62,7 +62,7 @@ extension ThemeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
         let theme = themes[indexPath.row]
-        
+        cell.backgroundColor = AppColor.backgroundColor
         cell.textLabel?.text = theme.title
         
         // Tandai centang kalau tema ini sedang aktif

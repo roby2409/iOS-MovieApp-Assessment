@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="24506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <device id="retina6_12" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24504"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-Regular.ttf">
+            <string>Poppins-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="MovieApp" customModuleProvider="target">
             <connections>
+                <outlet property="appBarview" destination="D6Z-jj-ROr" id="as0-4q-t4S"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,38 +25,74 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B8O-Bm-bgv" userLabel="Navigation View">
-                    <rect key="frame" x="0.0" y="118" width="393" height="82"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D6Z-jj-ROr" userLabel="AppBarView">
+                    <rect key="frame" x="0.0" y="118" width="393" height="50"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2mt-dk-Pzp">
-                            <rect key="frame" x="16" y="16" width="361" height="50"/>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppLogoTransparent" translatesAutoresizingMaskIntoConstraints="NO" id="C8j-bj-Ya6">
+                            <rect key="frame" x="8" y="5" width="40" height="40"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="50" id="Hhc-gR-AiU"/>
+                                <constraint firstAttribute="height" constant="40" id="Aqc-0D-eBL"/>
+                                <constraint firstAttribute="width" constant="40" id="QFR-Nv-Mpq"/>
                             </constraints>
-                        </stackView>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie App" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f6h-YQ-gd9">
+                            <rect key="frame" x="56" y="13" width="89" height="24"/>
+                            <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
+                            <color key="textColor" name="primaryText"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" name="secondaryBg"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="2mt-dk-Pzp" secondAttribute="bottom" constant="16" id="JqS-hU-UqX"/>
-                        <constraint firstItem="2mt-dk-Pzp" firstAttribute="leading" secondItem="B8O-Bm-bgv" secondAttribute="leading" constant="16" id="Moh-Is-90F"/>
-                        <constraint firstAttribute="trailing" secondItem="2mt-dk-Pzp" secondAttribute="trailing" constant="16" id="PCc-HR-xJj"/>
-                        <constraint firstItem="2mt-dk-Pzp" firstAttribute="top" secondItem="B8O-Bm-bgv" secondAttribute="top" constant="16" id="WJU-Kp-NxF"/>
+                        <constraint firstItem="C8j-bj-Ya6" firstAttribute="leading" secondItem="D6Z-jj-ROr" secondAttribute="leading" constant="8" id="BIe-WW-lpP"/>
+                        <constraint firstItem="C8j-bj-Ya6" firstAttribute="centerY" secondItem="D6Z-jj-ROr" secondAttribute="centerY" id="SMC-US-9at"/>
+                        <constraint firstItem="f6h-YQ-gd9" firstAttribute="leading" secondItem="C8j-bj-Ya6" secondAttribute="trailing" constant="8" id="biV-P1-OHY"/>
+                        <constraint firstItem="f6h-YQ-gd9" firstAttribute="centerY" secondItem="C8j-bj-Ya6" secondAttribute="centerY" id="qca-ky-y0h"/>
+                        <constraint firstAttribute="height" constant="50" id="r4w-Yw-Ycs"/>
                     </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ol2-cP-OhH">
+                    <rect key="frame" x="0.0" y="168" width="393" height="1"/>
+                    <color key="backgroundColor" name="colorNewDivider"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="n8l-Fe-cca"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ikb-6e-dvp">
+                    <rect key="frame" x="0.0" y="169" width="393" height="683"/>
+                    <color key="backgroundColor" name="backgroundColor"/>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" name="secondaryBg"/>
             <constraints>
-                <constraint firstItem="B8O-Bm-bgv" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="1k2-O9-vzi"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="B8O-Bm-bgv" secondAttribute="trailing" id="Cvp-Zp-zJD"/>
-                <constraint firstItem="B8O-Bm-bgv" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="LFg-uH-HOA"/>
+                <constraint firstItem="ikb-6e-dvp" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottom" id="0yW-pW-aUW"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ikb-6e-dvp" secondAttribute="trailing" id="63d-aQ-SCa"/>
+                <constraint firstItem="Ol2-cP-OhH" firstAttribute="top" secondItem="D6Z-jj-ROr" secondAttribute="bottom" id="AFn-XB-1rL"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="D6Z-jj-ROr" secondAttribute="trailing" id="ISE-f4-Wpd"/>
+                <constraint firstItem="Ol2-cP-OhH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="LkH-Oa-sH0"/>
+                <constraint firstItem="D6Z-jj-ROr" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="P9J-qH-DhJ"/>
+                <constraint firstItem="ikb-6e-dvp" firstAttribute="top" secondItem="Ol2-cP-OhH" secondAttribute="bottom" id="YG0-uM-YmS"/>
+                <constraint firstItem="ikb-6e-dvp" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Yq5-GA-zMv"/>
+                <constraint firstAttribute="trailing" secondItem="Ol2-cP-OhH" secondAttribute="trailing" id="hFq-Y9-RhK"/>
+                <constraint firstItem="D6Z-jj-ROr" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="r3W-W6-SgR"/>
             </constraints>
-            <point key="canvasLocation" x="141" y="154"/>
+            <point key="canvasLocation" x="139.69465648854961" y="153.52112676056339"/>
         </view>
     </objects>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <image name="AppLogoTransparent" width="1536" height="1024"/>
+        <namedColor name="backgroundColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="colorNewDivider">
+            <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="primaryText">
+            <color red="0.10196079313755035" green="0.10196079313755035" blue="0.10196079313755035" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="secondaryBg">
+            <color red="0.97254902124404907" green="0.97254902124404907" blue="0.97254902124404907" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

@@ -12,7 +12,7 @@ class SplashViewController: UIViewController {
     // MARK: - UI Components
     private let logoImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "AppLogo")
+        imageView.image = UIImage(named: "AppLogoTransparent")
         imageView.tintColor = AppColor.primary
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false

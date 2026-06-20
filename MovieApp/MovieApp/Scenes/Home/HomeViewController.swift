@@ -10,17 +10,15 @@ import UIKit
 // --- HOME: Tampilkan TabBar ---
 class HomeViewController: UIViewController {
 
+    @IBOutlet weak var appBarview: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = AppColor.secondaryBg
-        title = "Home"
-        
-        let btn = UIButton(type: .system)
-        btn.setTitle("Go to Detail (Hide Bar)", for: .normal)
-        btn.frame = CGRect(x: 100, y: 200, width: 200, height: 50)
-        btn.addAction(UIAction { _ in
-            self.navigationController?.pushViewController(DetailViewController(), animated: true)
-        }, for: .touchUpInside)
-        view.addSubview(btn)
+        appBarview.backgroundColor = AppColor.secondaryBg
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
 }

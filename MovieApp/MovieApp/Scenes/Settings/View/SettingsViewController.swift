@@ -32,7 +32,7 @@ class SettingsViewController: UIViewController {
         tableView.delegate = self
         tableView.register(UINib(nibName: "SettingsTableViewCell", bundle: nil),
                            forCellReuseIdentifier: "SettingsTableViewCell")
-        tableView.estimatedRowHeight = 100
+        tableView.estimatedRowHeight = 140
         tableView.rowHeight = UITableView.automaticDimension
         tableView.sectionHeaderTopPadding = 0
         tableView.tableHeaderView = nil
@@ -57,7 +57,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100 
+        return 140
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
