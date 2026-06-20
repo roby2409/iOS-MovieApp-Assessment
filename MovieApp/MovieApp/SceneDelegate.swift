@@ -17,6 +17,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let window = UIWindow(windowScene: windowScene)
         window.rootViewController = SplashViewController()
+        let savedTheme = AppThemeManager.shared.currentStyle
+        window.overrideUserInterfaceStyle = savedTheme
+        
         window.makeKeyAndVisible()
 
         self.window = window
