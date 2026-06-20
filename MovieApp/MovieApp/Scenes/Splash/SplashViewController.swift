@@ -12,7 +12,7 @@ class SplashViewController: UIViewController {
     // MARK: - UI Components
     private let logoImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "popcorn.fill")
+        imageView.image = UIImage(named: "AppLogo")
         imageView.tintColor = AppColor.primary
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -125,10 +125,23 @@ class SplashViewController: UIViewController {
                 self.taglineLabel.transform = .identity
             },
             completion: { _ in
-                debugPrint("hold continue to onboarding or homescreen")
+                self.navigateNext()
             }
         )
     }
 
+    private func navigateNext() {
+        let hasSeenOnboarding = UserDefaults.standard.bool(forKey: "hasSeenOnboarding")
+        
+        // GANTI: Sekarang targetnya adalah MainContainerViewController
+        let nextVC: UIViewController = hasSeenOnboarding ? MainContainerViewController() : OnBoardingViewController()
+        
+        guard let window = view.window else { return }
+        
+        // Transisi ke "Sultan Mode"
+        UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve, animations: {
+            window.rootViewController = nextVC
+        }, completion: nil)
+    }
 
 }
