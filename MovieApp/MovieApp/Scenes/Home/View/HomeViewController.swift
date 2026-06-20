@@ -168,6 +168,14 @@ extension HomeViewController: UICollectionViewDelegate {
             viewModel.fetchNextPage()
         }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        
+        let movie = viewModel.movies.value[indexPath.item]
+        let detailVC = DetailViewController(movieId: movie.id ?? 0)
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
 }
 
 // MARK: - UISearchBarDelegate
