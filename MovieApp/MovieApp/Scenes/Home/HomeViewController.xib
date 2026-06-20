@@ -16,7 +16,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="MovieApp" customModuleProvider="target">
             <connections>
-                <outlet property="appBarview" destination="D6Z-jj-ROr" id="as0-4q-t4S"/>
+                <outlet property="appBarView" destination="D6Z-jj-ROr" id="snA-Vv-5IT"/>
+                <outlet property="collectionView" destination="YQt-R2-Fmc" id="uOG-JB-YEK"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -60,7 +61,25 @@
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ikb-6e-dvp">
                     <rect key="frame" x="0.0" y="169" width="393" height="683"/>
+                    <subviews>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="YQt-R2-Fmc">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="683"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="2MN-lj-N9V">
+                                <size key="itemSize" width="128" height="128"/>
+                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </collectionViewFlowLayout>
+                        </collectionView>
+                    </subviews>
                     <color key="backgroundColor" name="backgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="YQt-R2-Fmc" firstAttribute="leading" secondItem="ikb-6e-dvp" secondAttribute="leading" id="1eO-yL-M29"/>
+                        <constraint firstItem="YQt-R2-Fmc" firstAttribute="top" secondItem="ikb-6e-dvp" secondAttribute="top" id="OhC-ZS-TQG"/>
+                        <constraint firstAttribute="trailing" secondItem="YQt-R2-Fmc" secondAttribute="trailing" id="gdf-DF-Xqr"/>
+                        <constraint firstAttribute="bottom" secondItem="YQt-R2-Fmc" secondAttribute="bottom" id="pKC-wG-h8b"/>
+                    </constraints>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

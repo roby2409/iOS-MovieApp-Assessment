@@ -7,14 +7,16 @@
 
 import UIKit
 
-// --- HOME: Tampilkan TabBar ---
 class HomeViewController: UIViewController {
 
-    @IBOutlet weak var appBarview: UIView!
+    @IBOutlet weak var appBarView: UIView!
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = AppColor.secondaryBg
-        appBarview.backgroundColor = AppColor.secondaryBg
+        appBarView.backgroundColor = AppColor.secondaryBg
     }
     
     override func viewWillAppear(_ animated: Bool) {
