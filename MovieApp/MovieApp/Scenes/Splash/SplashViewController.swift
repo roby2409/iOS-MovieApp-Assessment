@@ -12,8 +12,8 @@ class SplashViewController: UIViewController {
     // MARK: - UI Components
     private let logoImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "popcorn.fill")
-        imageView.tintColor = .systemRed
+        imageView.image = UIImage(named: "AppLogo")
+        imageView.tintColor = AppColor.primary
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -23,7 +23,7 @@ class SplashViewController: UIViewController {
         let label = UILabel()
         label.text = "MovieApp"
         label.font = .systemFont(ofSize: 34, weight: .bold)
-        label.textColor = .white
+        label.textColor = AppColor.primaryText
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -33,7 +33,7 @@ class SplashViewController: UIViewController {
         let label = UILabel()
         label.text = "GLI Assesment by Roby Setiawan"
         label.font = .systemFont(ofSize: 16, weight: .regular)
-        label.textColor = .secondaryLabel
+        label.textColor = AppColor.tertiaryText
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -44,6 +44,11 @@ class SplashViewController: UIViewController {
         stackView.axis = .vertical
         stackView.spacing = 16
         stackView.alignment = .center
+        stackView.backgroundColor = AppColor.neutralComponent
+        stackView.layer.cornerRadius = 16
+        stackView.isLayoutMarginsRelativeArrangement = true
+        stackView.layoutMargins = UIEdgeInsets(top: 24, left: 24, bottom: 24, right: 24)
+        
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
@@ -66,7 +71,7 @@ class SplashViewController: UIViewController {
     
     // MARK: - Setup UI & Layout
     private func setupLayout() {
-        view.backgroundColor = .black
+        view.backgroundColor = AppColor.secondaryBg
         
         containerStackView.addArrangedSubview(logoImageView)
         containerStackView.addArrangedSubview(titleLabel)
@@ -79,6 +84,8 @@ class SplashViewController: UIViewController {
             
             containerStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             containerStackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            containerStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
+            containerStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
             
             taglineLabel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -40),
             taglineLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
@@ -118,10 +125,23 @@ class SplashViewController: UIViewController {
                 self.taglineLabel.transform = .identity
             },
             completion: { _ in
-                debugPrint("hold continue to onboarding or homescreen")
+                self.navigateNext()
             }
         )
     }
 
-    
+    private func navigateNext() {
+        let hasSeenOnboarding = UserDefaults.standard.bool(forKey: "hasSeenOnboarding")
+        
+        // GANTI: Sekarang targetnya adalah MainContainerViewController
+        let nextVC: UIViewController = hasSeenOnboarding ? MainContainerViewController() : OnBoardingViewController()
+        
+        guard let window = view.window else { return }
+        
+        // Transisi ke "Sultan Mode"
+        UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve, animations: {
+            window.rootViewController = nextVC
+        }, completion: nil)
+    }
+
 }
