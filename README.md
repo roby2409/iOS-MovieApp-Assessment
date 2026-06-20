@@ -41,8 +41,8 @@ Resource+DefaultsFile/Configurations/Dev.xcconfig
 Update the values below:
 
 ```text
-BASE_URL=https://api.themoviedb.org/3
-TMDB_API_KEY=set_api_key_here
+TMDB_BASE_URL = https:/$()/api.themoviedb.org/3
+TMDB_API_KEY = set_api_key_here
 ```
 
 Replace:
