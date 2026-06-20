@@ -10,7 +10,7 @@ import Foundation
 // MARK: - DiscoverMovie
 struct DiscoverMovie: Codable {
     let page: Int?
-    let results: [Result]?
+    let results: [Movie]?
     let totalPages, totalResults: Int?
 
     enum CodingKeys: String, CodingKey {
@@ -21,7 +21,7 @@ struct DiscoverMovie: Codable {
 }
 
 // MARK: - Result
-struct Result: Codable {
+struct Movie: Codable {
     let adult: Bool?
     let backdropPath: String?
     let genreIds: [Int]?
