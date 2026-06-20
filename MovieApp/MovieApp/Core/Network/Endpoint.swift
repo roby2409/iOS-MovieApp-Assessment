@@ -10,4 +10,5 @@ import Foundation
 public enum Endpoint: String {
     case discoverMovie = "discover/movie"
     case searchMovie = "search/movie"
+    case movie = "movie"
 }
