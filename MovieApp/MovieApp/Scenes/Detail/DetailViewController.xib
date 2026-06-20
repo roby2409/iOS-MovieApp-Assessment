@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="24506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="dark"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24504"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-SemiBold.ttf">
+            <string>Poppins-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailViewController" customModule="MovieApp" customModuleProvider="target">
+            <connections>
+                <outlet property="navTitleLabel" destination="FvP-kG-TH2" id="qJa-of-wrW"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0lr-8Y-bdS" userLabel="Header View">
+                    <rect key="frame" x="0.0" y="118" width="393" height="50"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Iq7-ah-Xfa">
+                            <rect key="frame" x="24" y="8" width="34" height="34"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="34" id="ZWa-gy-9WP"/>
+                                <constraint firstAttribute="height" constant="34" id="geE-eG-YsH"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <color key="tintColor" name="primaryText"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" image="chevron.backward" catalog="system"/>
+                            <connections>
+                                <action selector="backAction:" destination="-1" eventType="touchUpInside" id="mCG-th-s6g"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Activity" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FvP-kG-TH2">
+                            <rect key="frame" x="68" y="13.333333333333341" width="124" height="23.333333333333329"/>
+                            <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="20"/>
+                            <color key="textColor" name="primaryText"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="FvP-kG-TH2" firstAttribute="leading" secondItem="Iq7-ah-Xfa" secondAttribute="trailing" constant="10" id="IpN-Y7-NxC"/>
+                        <constraint firstItem="Iq7-ah-Xfa" firstAttribute="leading" secondItem="0lr-8Y-bdS" secondAttribute="leading" constant="24" id="OpF-0N-sAU"/>
+                        <constraint firstAttribute="height" constant="50" id="acR-cV-NW4"/>
+                        <constraint firstItem="FvP-kG-TH2" firstAttribute="centerY" secondItem="0lr-8Y-bdS" secondAttribute="centerY" id="fEb-wr-efP"/>
+                        <constraint firstItem="Iq7-ah-Xfa" firstAttribute="centerY" secondItem="0lr-8Y-bdS" secondAttribute="centerY" id="mjF-Pw-eQ4"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" name="neutralComponent"/>
+            <constraints>
+                <constraint firstItem="0lr-8Y-bdS" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="5Qf-J5-04n"/>
+                <constraint firstItem="0lr-8Y-bdS" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="7SG-Te-zyp"/>
+                <constraint firstItem="0lr-8Y-bdS" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="yhg-yt-UqL"/>
+            </constraints>
+            <point key="canvasLocation" x="-257.25190839694653" y="147.88732394366198"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="chevron.backward" catalog="system" width="97" height="128"/>
+        <namedColor name="neutralComponent">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="primaryText">
+            <color red="0.10196079313755035" green="0.10196079313755035" blue="0.10196079313755035" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
