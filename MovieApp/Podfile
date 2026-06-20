@@ -1,0 +1,19 @@
+platform :ios, '13.0'
+
+target 'MovieApp' do
+  # Gunakan framework dinamis
+  use_frameworks!
+
+  # Library Utama untuk Assessment
+  pod 'RxSwift', '~> 6.0'
+  pod 'RxCocoa', '~> 6.0'
+  pod 'Kingfisher', '~> 7.0'
+
+  target 'MovieAppTests' do
+    inherit! :search_paths
+    # Library tambahan khusus untuk Unit Testing RxSwift
+    pod 'RxTest', '~> 6.0'
+    pod 'RxBlocking', '~> 6.0'
+  end
+
+end
