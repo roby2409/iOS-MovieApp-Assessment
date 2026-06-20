@@ -101,7 +101,7 @@ private extension DetailViewController {
         scrollView.addSubview(contentStackView)
         
         NSLayoutConstraint.activate([
-            contentStackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            contentStackView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 16),
             contentStackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16),
             contentStackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -16),
             contentStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -24),
